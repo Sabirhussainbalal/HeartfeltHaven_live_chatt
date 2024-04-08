@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}" />
+  <title>Heartfelt Haven</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='pic/Sabir.jpg') }}" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+    integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+    crossorigin="anonymous"></script>
+  <style>
+    .logout {
+      position: absolute;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .logout a:hover {
+      border: 4px solid white;
+    }
+
+    .logout button {
+      background-color: white;
+      height: calc(1.1rem + 20px);
+      padding: 5px 10px;
+      border-radius: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="logout">
+    {% if nick == "User" %}
+    <a href="/login"><button id="join">Login to Experience the Magic of Heartfelt Haven</button></a>
+    {% else %}
+    <a href="/logout"><button id="join">Logout</button></a>
+    {% endif %}
+  </div>
+  <div id="root">{% block content %} {% endblock %}</div>
+</body>
+
+</html>

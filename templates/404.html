@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found!</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='pic/Sabir.jpg') }}" type="image/x-icon">
+</head>
+<body>
+
+<main class="main" id="main">
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden !important;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .video-background video {
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      z-index: 1;
+    }
+
+    .content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 18px;
+    }
+
+    .music-button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .music-button:hover {
+      background-color: #0056b3;
+    }
+
+    .btn {
+      background-color: white;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: olive;
+    }
+  </style>
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="/static/bg/bg.mkv" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="content">
+    <h1>404 - Page Not Found</h1>
+    <p>Sorry, this page does not exist.</p>
+    <a href="/#"><button class="btn">Go Back to Home</button></a>
+    <br>
+    <br>
+    <button class="music-button" onclick="toggleMusic()">On Music</button>
+  </div>
+  <script>
+    var musicPlaying = false;
+    var audio = new Audio('/static/bg/mc.mp4');
+    var musicButton = document.querySelector('.music-button');
+
+    function toggleMusic() {
+      if (musicPlaying) {
+        audio.pause();
+        musicButton.innerText = 'On Music';
+      } else {
+        audio.play();
+        musicButton.innerText = 'Off Music';
+      }
+      musicPlaying = !musicPlaying;
+    }
+  </script>
+</main>
+
+
+</body>
+</html>
