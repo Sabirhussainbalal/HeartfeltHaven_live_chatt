@@ -1,8 +1,0 @@
-{
-  "params": {
-    "local_server": "True",
-    "local_uri": "mysql+pymysql://root:@localhost/data",
-    "prod_uri": "mysql+pymysql://root:@localhost/data",    
-    "upload_location":"S:\\Programming     Coding-Decoding\\BackendCourseFLash\\static\\assets\\img"
-  }
-}
